@@ -130,6 +130,21 @@
 <footer>
   © La Cité de Shou — Un idéal transmissible
 </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector(".sommaire");
+    const cartes = Array.from(container.children);
+    
+    // Mélange des cartes
+    for (let i = cartes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cartes[i], cartes[j]] = [cartes[j], cartes[i]];
+    }
+    
+    // Réinsertion dans le DOM
+    cartes.forEach(carte => container.appendChild(carte));
+  });
+</script>
 
 </body>
 </html>
